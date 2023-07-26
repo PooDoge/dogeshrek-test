@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom'
-import { Token, TokenAmount, WETH } from '@pancakeswap-libs/sdk'
+import { Token, TokenAmount, WAVAX } from '@pancakeswap-libs/sdk'
 import { Button, Text } from '@pancakeswap-libs/uikit'
 import { AutoColumn } from '../Column'
 import { RowBetween, RowFixed } from '../Row'
@@ -23,7 +23,7 @@ function V1PositionCard({ token, V1LiquidityBalance }: PositionCardProps) {
           <RowFixed>
             <DoubleCurrencyLogo currency0={token} margin size={20} />
             <Text fontSize="20px" style={{ marginLeft: '' }}>
-              {`${chainId && token.equals(WETH[chainId]) ? 'WETH' : token.symbol}/ETH`}
+              {`${chainId && token.equals(WAVAX[chainId]) ? 'WAVAX' : token.symbol}/ETH`}
             </Text>
             <Text
               fontSize="12px"
