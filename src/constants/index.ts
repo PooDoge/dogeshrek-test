@@ -4,29 +4,28 @@ import { AbstractConnector } from '@web3-react/abstract-connector'
 // import { bsc, fortmatic, injected, portis, walletconnect, walletlink } from '../connectors'
 import { injected, bsc } from '../connectors'
 // TODO
-export const ROUTER_ADDRESS = '0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F'
+export const ROUTER_ADDRESS = '0xd1529ef462316b2f31336352def66ae21eb69241'
 
 // a list of tokens by chain
 type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
 }
 
-export const DAI = new Token(ChainId.MAINNET, '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3', 18, 'DAI', 'Dai Stablecoin')
-export const BUSD = new Token(ChainId.MAINNET, '0xe9e7cea3dedca5984780bafc599bd69add087d56', 18, 'BUSD', 'Binance USD')
-export const USDT = new Token(ChainId.MAINNET, '0x55d398326f99059ff775485246999027b3197955', 18, 'USDT', 'Tether USD')
-export const EOS = new Token(ChainId.MAINNET, '0x56b6fb708fc5732dec1afc8d8556423a2edccbd6', 18, 'EOS', 'EOS Token')
-export const DOT = new Token(ChainId.MAINNET, '0x7083609fce4d1d8dc0c979aab8c869ea2c873402', 18, 'DOT', 'Polkadot Token')
-export const ETH = new Token(ChainId.MAINNET, '0x2170ed0880ac9a755fd29b2688956bd959f933f8', 18, 'ETH', 'Ethereum Token')
+export const DOGECORN = new Token(ChainId.MAINNET, '0x8df9B21945ebaa75424730F85eCFf426C35F5EF8', 18, 'DOGECORN', 'Dogecorn Token')
+export const DOGESHREK = new Token(ChainId.MAINNET, '0x2BE0096B24343549E34224aa9aa297E99961023D', 18, 'DOGESHREK', 'Binance USD')
+export const DC = new Token(ChainId.MAINNET, '0x7B4328c127B85369D9f82ca0503B000D09CF9180', 18, 'DC', 'Dogechain Token')
+export const KIBBY = new Token(ChainId.MAINNET, '0x72aB1BAbED0502B08225FA1eF777fa673d82Ee3e', 9, 'KIBBY', 'Kibby Token')
+export const BABYGRIMACE = new Token(ChainId.MAINNET, '0x77BCD0c09B213dc940b97132cd0E969Ec483b623', 18, 'BabyGrimace', 'BabyGrimace')
+export const DTOOLS = new Token(ChainId.MAINNET, '0xB9fcAa7590916578087842e017078D7797Fa18D0', 18, 'DTOOLS', 'DogeTools Token')
 
 const WETH_ONLY: ChainTokenList = {
-  [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
-  [ChainId.BSCTESTNET]: [WETH[ChainId.BSCTESTNET]]
+  [ChainId.MAINNET]: [WETH[ChainId.MAINNET]]
 }
 
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, BUSD, USDT, EOS, DOT]
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DOGECORN, DOGESHREK, DC, KIBBY, DTOOLS]
 }
 
 /**
@@ -35,30 +34,32 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
  */
 export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: Token[] } } = {
   [ChainId.MAINNET]: {
-    [ETH.address]: [DAI, WETH[ChainId.MAINNET]]
+    // [ETH.address]: [DAI, WETH[ChainId.MAINNET]]
   }
 }
 
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, BUSD, USDT]
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DOGECORN, DC, DOGESHREK]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, BUSD, USDT]
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DOGECORN, DC, DOGESHREK]
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
   [ChainId.MAINNET]: [
     [
-      new Token(ChainId.MAINNET, '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82', 18, 'CAKE', 'PancakeSwap Token'),
-      new Token(ChainId.MAINNET, '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c', 18, 'WBNB', 'Wrapped BNB')
+      // new Token(ChainId.MAINNET, '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82', 18, 'DOGECORN', 'Dogecorn Token'),
+      new Token(ChainId.MAINNET, '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82', 18, 'DOGESHREK', 'Dogeshrek Token'),
+      // new Token(ChainId.MAINNET, '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82', 18, 'DC', 'Dogechain Token'),
+      new Token(ChainId.MAINNET, '0xb7ddc6414bf4f5515b52d8bdd69973ae205ff101', 18, 'WWDOGE', 'Wrapped Doge')
     ],
-    [BUSD, USDT],
-    [DAI, USDT]
+    [DC, DOGESHREK],
+    [DOGESHREK, DOGECORN]
   ]
 }
 
@@ -75,10 +76,10 @@ export interface WalletInfo {
 }
 
 export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
-  BSC: {
-    connector: bsc,
-    name: 'Binance Chain Wallet',
-    iconName: 'binance.svg',
+  METAMASK: {
+    connector: injected,
+    name: 'MetaMask',
+    iconName: 'metamask.png',
     description: 'Easy-to-use browser extension.',
     href: null,
     color: '#E8831D'
@@ -91,24 +92,16 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     href: null,
     color: '#010101',
     primary: true
-  },
-  METAMASK: {
-    connector: injected,
-    name: 'MetaMask',
-    iconName: 'metamask.png',
-    description: 'Easy-to-use browser extension.',
-    href: null,
-    color: '#E8831D'
   }
-  // WALLET_CONNECT: {
-  //   connector: walletconnect,
-  //   name: 'WalletConnect',
-  //   iconName: 'walletConnectIcon.svg',
-  //   description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
-  //   href: null,
-  //   color: '#4196FC',
-  //   mobile: true
-  // },
+ /* WALLET_CONNECT: {
+  connector: walletconnect,
+  name: 'WalletConnect',
+  iconName: 'walletConnectIcon.svg',
+  description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
+  href: null,
+  color: '#4196FC',
+  mobile: true
+  } */
   // WALLET_LINK: {
   //   connector: walletlink,
   //   name: 'Coinbase Wallet',
