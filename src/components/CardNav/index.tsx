@@ -20,8 +20,7 @@ const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => (
       <ButtonMenuItem
         id="pool-nav-link"
         as="a"
-        href="https://www.binance.org/en/panama"
-        target="_blank"
+        href="https://dive.dogechain.dog"
         rel="noreferrer noopener"
       >
         Bridge

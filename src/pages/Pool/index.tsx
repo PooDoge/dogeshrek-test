@@ -64,7 +64,7 @@ export default function Pool() {
       <CardNav activeIndex={1} />
       <AppBody>
         <PageHeader title="Liquidity" description="Add liquidity to receive LP tokens">
-          <Button id="join-pool-button" as={Link} to="/add/ETH">
+          <Button id="join-pool-button" as={Link} to="/add/ETH" fullWidth>
             <TranslatedText translationId={100}>Add Liquidity</TranslatedText>
           </Button>
         </PageHeader>
@@ -85,13 +85,13 @@ export default function Pool() {
 
               {!account ? (
                 <LightCard padding="40px">
-                  <Body color={theme.colors.textDisabled} textAlign="center">
+                  <Body color={theme.colors.textDisabled} style={{ textAlign: 'center' }}>
                     Connect to a wallet to view your liquidity.
                   </Body>
                 </LightCard>
               ) : v2IsLoading ? (
                 <LightCard padding="40px">
-                  <Body color={theme.colors.textDisabled} textAlign="center">
+                  <Body color={theme.colors.textDisabled} style={{ textAlign: 'center' }}>
                     <Dots>Loading</Dots>
                   </Body>
                 </LightCard>
@@ -103,7 +103,7 @@ export default function Pool() {
                 </>
               ) : (
                 <LightCard padding="40px">
-                  <Body color={theme.colors.textDisabled} textAlign="center">
+                  <Body color={theme.colors.textDisabled} style={{ textAlign: 'center' }}>
                     <TranslatedText translationId={104}>No liquidity found.</TranslatedText>
                   </Body>
                 </LightCard>
@@ -118,9 +118,12 @@ export default function Pool() {
                     {hasV1Liquidity ? 'Migrate now.' : TranslateString(108, 'Import it.')}
                   </StyledInternalLink>
                 </Text>
-                <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
-                  Or, if you staked your LP tokens in a farm, unstake them to see them here.
+                <Text fontSize="14px" style={{ padding: '.5rem 0 1rem' }}>
+                  If you staked your LP tokens in a farm, unstake them to see them here. If your LP doesn&apos;t appear click button below:
                 </Text>
+                <Button id="find-pool-button" as={Link} to="/find" style={{ textAlign: 'center'}} fullWidth>
+                  <TranslatedText translationId={100}>Import Pool</TranslatedText>
+                </Button>
               </div>
             </AutoColumn>
           </CardBody>

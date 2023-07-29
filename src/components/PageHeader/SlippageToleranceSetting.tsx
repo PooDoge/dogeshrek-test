@@ -5,7 +5,7 @@ import { useUserSlippageTolerance } from 'state/user/hooks'
 import QuestionHelper from '../QuestionHelper'
 import TranslatedText from '../TranslatedText'
 
-const MAX_SLIPPAGE = 5000
+const MAX_SLIPPAGE = 10001
 const RISKY_SLIPPAGE_LOW = 50
 const RISKY_SLIPPAGE_HIGH = 500
 
@@ -14,7 +14,7 @@ const StyledSlippageToleranceSettings = styled.div`
 `
 
 const Option = styled.div`
-  padding: 0 4px;
+  padding: 0 4px 15px;
 `
 
 const Options = styled.div`
@@ -43,8 +43,9 @@ const Label = styled.div`
 
 const predefinedValues = [
   { label: '0.1%', value: 0.1 },
-  { label: '0.5%', value: 0.5 },
-  { label: '1%', value: 1 }
+  { label: '1%', value: 1 },
+  { label: '10%', value: 10 },
+  { label: 'Max', value: 50 }
 ]
 
 const SlippageToleranceSettings = () => {
@@ -77,7 +78,11 @@ const SlippageToleranceSettings = () => {
     if (userSlippageTolerance < RISKY_SLIPPAGE_LOW) {
       setError('Your transaction may fail')
     } else if (userSlippageTolerance > RISKY_SLIPPAGE_HIGH) {
-      setError('Your transaction may be frontrun')
+      if (userSlippageTolerance > 3000 ) {
+        setError('Warning: Really high slippage, not recommended in normal trading circumstances')
+      } else {
+        setError('Warning: High slippage, use only with volatile or high tax tokens')
+      }
     }
   }, [userSlippageTolerance, setError])
 
