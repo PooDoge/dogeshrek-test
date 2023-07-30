@@ -26,6 +26,10 @@ const Options = styled.div`
     padding-left: 0;
   }
 
+  & > ${Input} {
+    max-width: 100px;
+  }
+
   ${Option}:last-child {
     padding-right: 0;
   }

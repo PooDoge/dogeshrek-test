@@ -17,8 +17,7 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
   const slippageAdjustedAmounts = computeSlippageAdjustedAmounts(trade, allowedSlippage)
 
   return (
-    <Card>
-      <CardBody>
+    <div>
         <RowBetween>
           <RowFixed>
             <Text fontSize="14px">{isExactIn ? 'Minimum received' : 'Maximum sold'}</Text>
@@ -51,8 +50,7 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
             {realizedLPFee ? `${realizedLPFee.toSignificant(4)} ${trade.inputAmount.currency.symbol}` : '-'}
           </Text>
         </RowBetween>
-      </CardBody>
-    </Card>
+        </div>
   )
 }
 
@@ -69,15 +67,10 @@ export function AdvancedSwapDetails({ trade }: AdvancedSwapDetailsProps) {
     <AutoColumn gap="md">
       {trade && (
         <>
-          <TradeSummary trade={trade} allowedSlippage={allowedSlippage} />
+              <TradeSummary trade={trade} allowedSlippage={allowedSlippage} />
           {showRoute && (
             <>
-              <SectionBreak />
               <AutoColumn style={{ padding: '0 24px' }}>
-                <RowFixed>
-                  <Text fontSize="14px">Route</Text>
-                  <QuestionHelper text="Routing through these tokens resulted in the best price for your trade." />
-                </RowFixed>
                 <SwapRoute trade={trade} />
               </AutoColumn>
             </>

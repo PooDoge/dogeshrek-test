@@ -6,6 +6,7 @@ import QuestionHelper from '../QuestionHelper'
 import TranslatedText from '../TranslatedText'
 
 const StyledTransactionDeadlineSetting = styled.div`
+  margin-top: 20px;
   margin-bottom: 16px;
 `
 

@@ -309,7 +309,7 @@ const Swap = () => {
             swapErrorMessage={swapErrorMessage}
             onDismiss={handleConfirmDismiss}
           />
-          <PageHeader title="Exchange" description="Trade tokens in an instant" />
+          <PageHeader title="Dogeshrek Swap" description="Trade tokens on Dogechain" />
           <CardBody>
             <AutoColumn gap="md">
               <CurrencyInputPanel

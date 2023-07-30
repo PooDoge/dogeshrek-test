@@ -17,6 +17,7 @@ export const DC = new Token(ChainId.MAINNET, '0x7B4328c127B85369D9f82ca0503B000D
 export const KIBBY = new Token(ChainId.MAINNET, '0x72aB1BAbED0502B08225FA1eF777fa673d82Ee3e', 9, 'KIBBY', 'Kibby Token')
 export const BABYGRIMACE = new Token(ChainId.MAINNET, '0x77BCD0c09B213dc940b97132cd0E969Ec483b623', 18, 'BabyGrimace', 'BabyGrimace')
 export const DTOOLS = new Token(ChainId.MAINNET, '0xB9fcAa7590916578087842e017078D7797Fa18D0', 18, 'DTOOLS', 'DogeTools Token')
+export const RAINGOD = new Token(ChainId.MAINNET, '0x1174d0b9cfc32f8c39884b226db43697a9ad541d', 18, 'RainGod', 'RainGod')
 
 const WETH_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WETH[ChainId.MAINNET]]
@@ -25,7 +26,7 @@ const WETH_ONLY: ChainTokenList = {
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DOGECORN, DOGESHREK, DC, KIBBY, DTOOLS]
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DOGECORN, DOGESHREK, DC, KIBBY, DTOOLS, RAINGOD]
 }
 
 /**
@@ -156,7 +157,7 @@ export const ALLOWED_PRICE_IMPACT_HIGH: Percent = new Percent(JSBI.BigInt(1000),
 // if the price slippage exceeds this number, force the user to type 'confirm' to execute
 export const PRICE_IMPACT_WITHOUT_FEE_CONFIRM_MIN: Percent = new Percent(JSBI.BigInt(2000), BIPS_BASE) // 20%
 // for non expert mode disable swaps above this
-export const BLOCKED_PRICE_IMPACT_NON_EXPERT: Percent = new Percent(JSBI.BigInt(3000), BIPS_BASE) // 30%
+export const BLOCKED_PRICE_IMPACT_NON_EXPERT: Percent = new Percent(JSBI.BigInt(6000), BIPS_BASE) // 60%
 
 // used to ensure the user doesn't send so much ETH so they end up with <.01
 export const MIN_ETH: JSBI = JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(16)) // .01 ETH

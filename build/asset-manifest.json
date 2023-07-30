@@ -2,13 +2,13 @@
   "files": {
     "static/js/0.0a3212e3.chunk.js": "./static/js/0.0a3212e3.chunk.js",
     "static/js/0.0a3212e3.chunk.js.map": "./static/js/0.0a3212e3.chunk.js.map",
-    "main.js": "./static/js/main.15f53f02.chunk.js",
-    "main.js.map": "./static/js/main.15f53f02.chunk.js.map",
+    "main.js": "./static/js/main.bf07edae.chunk.js",
+    "main.js.map": "./static/js/main.bf07edae.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.dd158029.js",
     "runtime-main.js.map": "./static/js/runtime-main.dd158029.js.map",
     "static/css/3.191f4a61.chunk.css": "./static/css/3.191f4a61.chunk.css",
-    "static/js/3.549963ca.chunk.js": "./static/js/3.549963ca.chunk.js",
-    "static/js/3.549963ca.chunk.js.map": "./static/js/3.549963ca.chunk.js.map",
+    "static/js/3.cc52832a.chunk.js": "./static/js/3.cc52832a.chunk.js",
+    "static/js/3.cc52832a.chunk.js.map": "./static/js/3.cc52832a.chunk.js.map",
     "static/js/4.a8225f14.chunk.js": "./static/js/4.a8225f14.chunk.js",
     "static/js/4.a8225f14.chunk.js.map": "./static/js/4.a8225f14.chunk.js.map",
     "static/js/5.4ea0fa92.chunk.js": "./static/js/5.4ea0fa92.chunk.js",
@@ -22,18 +22,19 @@
     "index.html": "./index.html",
     "static/css/3.191f4a61.chunk.css.map": "./static/css/3.191f4a61.chunk.css.map",
     "static/js/0.0a3212e3.chunk.js.LICENSE.txt": "./static/js/0.0a3212e3.chunk.js.LICENSE.txt",
-    "static/js/3.549963ca.chunk.js.LICENSE.txt": "./static/js/3.549963ca.chunk.js.LICENSE.txt",
+    "static/js/3.cc52832a.chunk.js.LICENSE.txt": "./static/js/3.cc52832a.chunk.js.LICENSE.txt",
     "static/js/4.a8225f14.chunk.js.LICENSE.txt": "./static/js/4.a8225f14.chunk.js.LICENSE.txt",
     "static/js/5.4ea0fa92.chunk.js.LICENSE.txt": "./static/js/5.4ea0fa92.chunk.js.LICENSE.txt",
     "static/js/8.22d7977b.chunk.js.LICENSE.txt": "./static/js/8.22d7977b.chunk.js.LICENSE.txt",
     "static/media/inter.css": "./static/media/Inter.var.a738a131.woff2",
+    "static/media/binance-logo.3ad36f65.png": "./static/media/binance-logo.3ad36f65.png",
     "static/media/blue-loader.def91951.svg": "./static/media/blue-loader.def91951.svg",
     "static/media/dropdown.87531686.svg": "./static/media/dropdown.87531686.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.dd158029.js",
     "static/css/3.191f4a61.chunk.css",
-    "static/js/3.549963ca.chunk.js",
-    "static/js/main.15f53f02.chunk.js"
+    "static/js/3.cc52832a.chunk.js",
+    "static/js/main.bf07edae.chunk.js"
   ]
 }

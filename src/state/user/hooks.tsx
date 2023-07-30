@@ -17,6 +17,7 @@ import {
   updateUserDarkMode,
   updateUserDeadline,
   updateUserExpertMode,
+  updateUserMultiHop,
   updateUserSlippageTolerance,
   muteAudio,
   unmuteAudio,
@@ -95,6 +96,10 @@ export function useIsExpertMode(): boolean {
   return useSelector<AppState, AppState['user']['userExpertMode']>((state) => state.user.userExpertMode)
 }
 
+export function useIsMultiHop(): boolean {
+  return useSelector<AppState, AppState['user']['userMultiHop']>((state) => state.user.userMultiHop)
+}
+
 export function useExpertModeManager(): [boolean, () => void] {
   const dispatch = useDispatch<AppDispatch>()
   const expertMode = useIsExpertMode()
@@ -104,6 +109,17 @@ export function useExpertModeManager(): [boolean, () => void] {
   }, [expertMode, dispatch])
 
   return [expertMode, toggleSetExpertMode]
+}
+
+export function useMultiHopManager(): [boolean, () => void] {
+  const dispatch = useDispatch<AppDispatch>()
+  const multiHop = useIsMultiHop()
+
+  const toggleSetMultiHop = useCallback(() => {
+    dispatch(updateUserMultiHop({ userMultiHop: !multiHop }))
+  }, [multiHop, dispatch])
+
+  return [multiHop, toggleSetMultiHop]
 }
 
 export function useUserSlippageTolerance(): [number, (slippage: number) => void] {

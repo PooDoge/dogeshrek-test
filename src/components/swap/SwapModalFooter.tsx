@@ -39,7 +39,7 @@ export default function SwapModalFooter({
 
   return (
     <>
-      <AutoColumn gap="0px">
+      <AutoColumn gap="0px" style={{ marginTop: '-20x' }}>
         <RowBetween align="center">
           <Text fontSize="14px">Price</Text>
           <Text

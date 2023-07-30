@@ -76,10 +76,7 @@ export default function Pool() {
                   <TranslatedText translationId={102}>Your Liquidity</TranslatedText>
                 </Text>
                 <Question
-                  text={TranslateString(
-                    130,
-                    'When you add liquidity, you are given pool tokens that represent your share. If you don’t see a pool you joined in this list, try importing a pool below.'
-                  )}
+                  text='When you add liquidity, you are given pool tokens that represent your share. If you don&apos;t see a pool you joined in this list, try importing a pool below.'
                 />
               </RowBetween>
 

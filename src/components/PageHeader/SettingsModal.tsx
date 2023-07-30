@@ -2,6 +2,8 @@ import React from 'react'
 import { Modal } from '@pancakeswap-libs/uikit'
 import SlippageToleranceSetting from './SlippageToleranceSetting'
 import TransactionDeadlineSetting from './TransactionDeadlineSetting'
+import ExpertModeSetting from './ExpertModeSetting'
+import MultiHopSetting from './MultiHopSetting'
 
 type SettingsModalProps = {
   onDismiss?: () => void
@@ -14,6 +16,8 @@ const SettingsModal = ({ onDismiss = defaultOnDismiss }: SettingsModalProps) => 
   return (
     <Modal title="Settings" onDismiss={onDismiss}>
       <SlippageToleranceSetting />
+      <MultiHopSetting />
+      <ExpertModeSetting />
       <TransactionDeadlineSetting />
     </Modal>
   )
