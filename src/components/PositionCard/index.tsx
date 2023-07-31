@@ -48,22 +48,22 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
 
   const [token0Deposited, token1Deposited] =
     !!pair &&
-    !!totalPoolTokens &&
-    !!userPoolBalance &&
-    // this condition is a short-circuit in the case where useTokenBalance updates sooner than useTotalSupply
-    JSBI.greaterThanOrEqual(totalPoolTokens.raw, userPoolBalance.raw)
+      !!totalPoolTokens &&
+      !!userPoolBalance &&
+      // this condition is a short-circuit in the case where useTokenBalance updates sooner than useTotalSupply
+      JSBI.greaterThanOrEqual(totalPoolTokens.raw, userPoolBalance.raw)
       ? [
-          pair.getLiquidityValue(pair.token0, totalPoolTokens, userPoolBalance, false),
-          pair.getLiquidityValue(pair.token1, totalPoolTokens, userPoolBalance, false),
-        ]
+        pair.getLiquidityValue(pair.token0, totalPoolTokens, userPoolBalance, false),
+        pair.getLiquidityValue(pair.token1, totalPoolTokens, userPoolBalance, false),
+      ]
       : [undefined, undefined]
 
   return (
     <>
       {userPoolBalance && (
-        <UIKitCard>
+        <UIKitCard padding="0px 0px">
           <CardBody>
-            <AutoColumn gap="12px">
+            <AutoColumn gap="0px">
               <FixedHeightRow>
                 <RowFixed>
                   <Text style={{ textTransform: 'uppercase', fontWeight: 600 }} fontSize="14px" color="textSubtle">
@@ -107,6 +107,18 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
                     '-'
                   )}
                 </FixedHeightRow>
+                <RowBetween marginTop="10px">
+                  <Button as={Link} to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`} style={{ width: '48%' }}>
+                    Add
+                  </Button>
+                  <Button
+                    as={Link}
+                    style={{ width: '48%' }}
+                    to={`/remove/${currencyId(currency0)}/${currencyId(currency1)}`}
+                  >
+                    Remove
+                  </Button>
+                </RowBetween>
               </AutoColumn>
             </AutoColumn>
           </CardBody>
@@ -134,14 +146,14 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
 
   const [token0Deposited, token1Deposited] =
     !!pair &&
-    !!totalPoolTokens &&
-    !!userPoolBalance &&
-    // this condition is a short-circuit in the case where useTokenBalance updates sooner than useTotalSupply
-    JSBI.greaterThanOrEqual(totalPoolTokens.raw, userPoolBalance.raw)
+      !!totalPoolTokens &&
+      !!userPoolBalance &&
+      // this condition is a short-circuit in the case where useTokenBalance updates sooner than useTotalSupply
+      JSBI.greaterThanOrEqual(totalPoolTokens.raw, userPoolBalance.raw)
       ? [
-          pair.getLiquidityValue(pair.token0, totalPoolTokens, userPoolBalance, false),
-          pair.getLiquidityValue(pair.token1, totalPoolTokens, userPoolBalance, false),
-        ]
+        pair.getLiquidityValue(pair.token0, totalPoolTokens, userPoolBalance, false),
+        pair.getLiquidityValue(pair.token1, totalPoolTokens, userPoolBalance, false),
+      ]
       : [undefined, undefined]
 
   return (

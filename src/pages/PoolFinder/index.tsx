@@ -6,7 +6,7 @@ import { LightCard } from 'components/Card'
 import { AutoColumn, ColumnCenter } from 'components/Column'
 import CurrencyLogo from 'components/CurrencyLogo'
 import { FindPoolTabs } from 'components/NavigationTabs'
-import { MinimalPositionCard } from 'components/PositionCard'
+import FullPositionCard, { MinimalPositionCard } from 'components/PositionCard'
 import CurrencySearchModal from 'components/SearchModal/CurrencySearchModal'
 import { PairState, usePair } from 'data/Reserves'
 import { useActiveWeb3React } from 'hooks'
@@ -112,7 +112,7 @@ export default function PoolFinder() {
 
             {hasPosition && (
               <ColumnCenter
-                style={{ justifyItems: 'center', backgroundColor: '', padding: '12px 0px', borderRadius: '12px' }}
+                style={{ justifyItems: 'center', backgroundColor: '', padding: '12px 0px 0px' }}
               >
                 <Text style={{ textAlign: 'center' }}>Pool Found!</Text>
               </ColumnCenter>
