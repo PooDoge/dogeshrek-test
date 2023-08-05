@@ -2610,7 +2610,7 @@
 
 "@pancakeswap-libs/uikit@PooDoge/dogeshrek-uikitv2":
   version "0.10.2"
-  resolved "https://codeload.github.com/PooDoge/dogeshrek-uikitv2/tar.gz/3a6a0dd25850c6b7e93947d4ba5442cb26771162"
+  resolved "https://codeload.github.com/PooDoge/dogeshrek-uikitv2/tar.gz/ee14e19c08c4ce5c78be2eaea429e37977f735f7"
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"
