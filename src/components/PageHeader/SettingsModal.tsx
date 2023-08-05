@@ -4,6 +4,7 @@ import SlippageToleranceSetting from './SlippageToleranceSetting'
 import TransactionDeadlineSetting from './TransactionDeadlineSetting'
 import ExpertModeSetting from './ExpertModeSetting'
 import MultiHopSetting from './MultiHopSetting'
+import AudioModeSetting from './AudioModeSetting'
 
 type SettingsModalProps = {
   onDismiss?: () => void
@@ -18,6 +19,7 @@ const SettingsModal = ({ onDismiss = defaultOnDismiss }: SettingsModalProps) => 
       <SlippageToleranceSetting />
       <MultiHopSetting />
       <ExpertModeSetting />
+      <AudioModeSetting />
       <TransactionDeadlineSetting />
     </Modal>
   )

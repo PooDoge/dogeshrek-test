@@ -2,7 +2,7 @@ import { transparentize } from 'polished'
 import React from 'react'
 import { AlertTriangle } from 'react-feather'
 import { Text } from '@pancakeswap-libs/uikit'
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { AutoColumn } from '../Column'
 
 export const Wrapper = styled.div`
@@ -10,17 +10,64 @@ export const Wrapper = styled.div`
 `
 
 export const ArrowWrapper = styled.div<{ clickable: boolean }>`
-  padding: 2px;
+  padding: 0px;
+  z-index: 5;
+  margin-top: -1.5rem;
+  margin-bottom: -1.5rem;
+  -webkit-box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.1);
+  border-radius: 50%;
 
   ${({ clickable }) =>
     clickable
       ? css`
           :hover {
             cursor: pointer;
-            opacity: 0.8;
+            -webkit-animation: breathe 0.5s linear infinite;
+            animation: breathe 0.5s linear infinite;
+            -webkit-box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.3);
+            -moz-box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.3);
+            box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.3);
+            border-radius: 50%;
+          }
+          :active {
+            cursor: pointer;
+            -webkit-animation: grow 0.2s linear infinite;
+            animation: grow 0.2s linear infinite;
           }
         `
       : null}
+
+      @keyframes breathe {
+        0% {
+          transform: scale(1.0);
+          -webkit-transform: scale(1.0);
+        }
+        50% {
+          transform: scale(0.9);
+          -webkit-transform: scale(0.9);
+        }
+        100% {
+          transform: scale(1.0);
+          -webkit-transform: scale(1.0);
+        }
+      }
+      @keyframes grow {
+        0% {
+          transform: scale(1.0);
+          -webkit-transform: scale(1.0);
+        }
+        50% {
+          transform: scale(1.25);
+          -webkit-transform: scale(1.25);
+        }
+        100% {
+          transform: scale(1.0);
+          -webkit-transform: scale(1.0);
+        }
+      }
+
 `
 
 export const SectionBreak = styled.div`

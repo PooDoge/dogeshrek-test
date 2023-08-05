@@ -6,6 +6,7 @@ import ENS_ABI from '../constants/abis/ens-registrar.json'
 import ENS_PUBLIC_RESOLVER_ABI from '../constants/abis/ens-public-resolver.json'
 import { ERC20_BYTES32_ABI } from '../constants/abis/erc20'
 import ERC20_ABI from '../constants/abis/erc20.json'
+import FEED_ABI from '../constants/abis/pricefeed.json'
 import { MIGRATOR_ABI, MIGRATOR_ADDRESS } from '../constants/abis/migrator'
 import WETH_ABI from '../constants/abis/weth.json'
 import { MULTICALL_ABI, MULTICALL_NETWORKS } from '../constants/multicall'
@@ -48,6 +49,11 @@ export function useTokenContract(tokenAddress?: string, withSignerIfPossible?: b
 export function useWETHContract(withSignerIfPossible?: boolean): Contract | null {
   const { chainId } = useActiveWeb3React()
   return useContract("0xb7ddc6414bf4f5515b52d8bdd69973ae205ff101", WETH_ABI, withSignerIfPossible)
+}
+
+export function useFeedContract(): Contract | null {
+  const { chainId } = useActiveWeb3React()
+  return useContract("0x670404e04bf2f6f7f8bdb0ed8714a01c5a1bf4c6", FEED_ABI, false)
 }
 
 export function useENSRegistrarContract(withSignerIfPossible?: boolean): Contract | null {

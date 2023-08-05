@@ -1,7 +1,7 @@
 import { CurrencyAmount, JSBI, Token, Trade } from '@pancakeswap-libs/sdk'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { ArrowDown } from 'react-feather'
-import { CardBody, ArrowDownIcon, Button, IconButton, Text } from '@pancakeswap-libs/uikit'
+import { CardBody, SwapVertIcon, Button, IconButton, Text } from '@pancakeswap-libs/uikit'
 import { ThemeContext } from 'styled-components'
 import AddressInputPanel from 'components/AddressInputPanel'
 import Card, { GreyCard } from 'components/Card'
@@ -175,6 +175,7 @@ const Swap = () => {
   }, [approval, approvalSubmitted])
 
   const maxAmountInput: CurrencyAmount | undefined = maxAmountSpend(currencyBalances[Field.INPUT])
+  const maxAmountOutput: CurrencyAmount | undefined = maxAmountSpend(currencyBalances[Field.OUTPUT])
   const atMaxAmountInput = Boolean(maxAmountInput && parsedAmounts[Field.INPUT]?.equalTo(maxAmountInput))
 
   // the callback to execute the swap
@@ -271,6 +272,12 @@ const Swap = () => {
     }
   }, [maxAmountInput, onUserInput])
 
+  const handleMaxOutput = useCallback(() => {
+    if (maxAmountOutput) {
+      onUserInput(Field.OUTPUT, maxAmountOutput.toExact())
+    }
+  }, [maxAmountOutput, onUserInput])
+
   const handleOutputSelect = useCallback(
     (outputCurrency) => {
       onCurrencySelection(Field.OUTPUT, outputCurrency)
@@ -313,13 +320,8 @@ const Swap = () => {
           <CardBody>
             <AutoColumn gap="md">
               <CurrencyInputPanel
-                label={
-                  independentField === Field.OUTPUT && !showWrap && trade
-                    ? 'From (estimated)'
-                    : TranslateString(76, 'From')
-                }
                 value={formattedAmounts[Field.INPUT]}
-                showMaxButton={!atMaxAmountInput}
+                showMaxButton={false}
                 currency={currencies[Field.INPUT]}
                 onUserInput={handleTypeInput}
                 onMax={handleMaxInput}
@@ -336,10 +338,10 @@ const Swap = () => {
                         setApprovalSubmitted(false) // reset 2 step UI for approvals
                         onSwitchTokens()
                       }}
-                      style={{ borderRadius: '50%' }}
-                      size="sm"
+                      style={{ borderRadius: '100%' }}
+                      size="md"
                     >
-                      <ArrowDownIcon color="primary" width="24px" />
+                      <SwapVertIcon color="primary" width="24px" />
                     </IconButton>
                   </ArrowWrapper>
                   {recipient === null && !showWrap && isExpertMode ? (
@@ -355,6 +357,7 @@ const Swap = () => {
                 label={
                   independentField === Field.INPUT && !showWrap && trade ? 'To (estimated)' : TranslateString(80, 'To')
                 }
+                onMax={handleMaxOutput}
                 showMaxButton={false}
                 currency={currencies[Field.OUTPUT]}
                 onCurrencySelect={handleOutputSelect}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import BigNumber from 'bignumber.js'
-import { useMulticallContract } from './useContract'
+import { useMulticallContract, useFeedContract } from './useContract'
 import ERC20_INTERFACE from '../constants/abis/erc20'
 import priceContracts from '../constants/eggPriceContracts'
 
@@ -21,23 +21,33 @@ const useGetPriceData = () => {
   const [data, setData] = useState<number>(0)
 
   const multicallContract = useMulticallContract();
+  const dogeOracle = useFeedContract();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if(multicallContract){
-          const {cakeAddress, busdAddress, lpAddress} = priceContracts;
+        if(multicallContract && dogeOracle){
+          const {cakeAddress, wwdogeAddress, lpAddress} = priceContracts;
           const calls = [
             [cakeAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])],
-            [busdAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])],
+            [wwdogeAddress, ERC20_INTERFACE.encodeFunctionData("balanceOf", [lpAddress])]
           ];
-
+          
           const [resultsBlockNumber, result] = await multicallContract.aggregate(calls);
           const [cakeAmount, busdAmount] = result.map(r=>ERC20_INTERFACE.decodeFunctionResult("balanceOf", r));
+
+          const dogeUSD = await dogeOracle.getDogePrice();
+          const dogesPrice = dogeUSD.toNumber() * 0.000001;
+
+          console.log(dogesPrice);
+
           const cake = new BigNumber(cakeAmount);
           const busd = new BigNumber(busdAmount);
           const cakePrice = busd.div(cake).toNumber();
-          setData(cakePrice)
+          const cakeUSDPrice = cakePrice * dogesPrice;
+          console.log("Price Data:");
+          console.log(cakeUSDPrice);
+          setData(cakeUSDPrice)
         }
       } catch (error) {
         console.error('Unable to fetch price data:', error)
@@ -45,7 +55,7 @@ const useGetPriceData = () => {
     }
 
     fetchData()
-  }, [multicallContract])
+  }, [multicallContract, dogeOracle])
 
   return data
 }

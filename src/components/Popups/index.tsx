@@ -7,6 +7,7 @@ import PopupItem from './PopupItem'
 const MobilePopupWrapper = styled.div<{ height: string | number }>`
   position: relative;
   max-width: 100%;
+  z-index: 6;
   height: ${({ height }) => height};
   margin: ${({ height }) => (height ? '0 auto;' : 0)};
   margin-bottom: ${({ height }) => (height ? '20px' : 0)}};
@@ -30,7 +31,7 @@ const MobilePopupInner = styled.div`
 `
 
 const FixedPopupColumn = styled(AutoColumn)`
-  position: fixed;
+  position: relative;
   top: 64px;
   right: 1rem;
   max-width: 355px !important;
