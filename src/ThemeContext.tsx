@@ -14,7 +14,7 @@ const ThemeContext = React.createContext<ThemeContextType>({ isDark: false, togg
 const ThemeContextProvider: React.FC = ({ children }) => {
   const [isDark, setIsDark] = useState(() => {
     const isDarkUserSetting = localStorage.getItem(CACHE_KEY)
-    return isDarkUserSetting ? JSON.parse(isDarkUserSetting) : false
+    return isDarkUserSetting ? JSON.parse(isDarkUserSetting) : true
   })
 
   const handleSetup = useCallback(event=>{
