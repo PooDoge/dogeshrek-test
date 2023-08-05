@@ -8,7 +8,7 @@
     "@crowdin/crowdin-api-client": "^1.8.16",
     "@ethersproject/experimental": "^5.0.1",
     "@pancakeswap-libs/sdk": "PooDoge/dogeshrek-swap-sdk",
-    "@pancakeswap-libs/uikit": "goosedefi/goose-uikit",
+    "@pancakeswap-libs/uikit": "PooDoge/dogeshrek-uikitv2",
     "@popperjs/core": "^2.4.4",
     "@reach/dialog": "^0.10.3",
     "@reach/portal": "^0.10.3",

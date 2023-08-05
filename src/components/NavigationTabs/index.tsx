@@ -88,7 +88,7 @@ export function SwapPoolTabs({ active }: { active: 'swap' | 'pool' }) {
       <StyledNavLink id="pool-nav-link" to="/pool" isActive={() => active === 'pool'}>
         <TranslatedText translationId={74}>Pool</TranslatedText>
       </StyledNavLink>
-      <StyledAbsoluteLink id="pool-nav-link" target="_blank" href="https://www.binance.org/en/panama">
+      <StyledAbsoluteLink id="pool-nav-link" target="_blank" href="https://dive.dogechain.dog">
         Bridge
       </StyledAbsoluteLink>
     </Tabs>
@@ -96,7 +96,7 @@ export function SwapPoolTabs({ active }: { active: 'swap' | 'pool' }) {
 }
 
 export const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => (
-  <ButtonMenu activeIndex={activeIndex} size="sm" variant="subtle">
+  <ButtonMenu activeIndex={activeIndex} size="sm" variant="primary">
     <ButtonMenuItem id="swap-nav-link" to="/swap" as={HistoryLink}>
       <TranslatedText translationId={8}>Swap</TranslatedText>
     </ButtonMenuItem>
@@ -106,8 +106,7 @@ export const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => (
     <ButtonMenuItem
       id="pool-nav-link"
       as="a"
-      href="https://www.binance.org/en/panama"
-      target="_blank"
+      href="https://dive.dogechain.dog"
       rel="noreferrer noopener"
     >
       Bridge

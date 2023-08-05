@@ -5,12 +5,12 @@ import { ButtonMenu, ButtonMenuItem } from '@pancakeswap-libs/uikit'
 import TranslatedText from '../TranslatedText'
 
 const StyledNav = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 `
 
 const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => (
   <StyledNav>
-    <ButtonMenu activeIndex={activeIndex} size="sm" variant="subtle">
+    <ButtonMenu activeIndex={activeIndex} size="sm" variant="primary">
       <ButtonMenuItem id="swap-nav-link" to="/swap" as={Link}>
         <TranslatedText translationId={8}>Swap</TranslatedText>
       </ButtonMenuItem>
